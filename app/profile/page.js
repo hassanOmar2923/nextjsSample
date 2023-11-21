@@ -1,6 +1,6 @@
 
 
-export default function Home() {
+export default function Profile() {
   return (
     <div className="max-w-md mx-auto bg-white shadow-lg rounded-md overflow-hidden">
       {/* <div

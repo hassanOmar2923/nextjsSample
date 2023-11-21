@@ -20,7 +20,7 @@ const Header = () => {
             <Link href="/home" className="text-gray-400 hover:text-white">Home</Link>
           </li>
           <li>
-            <Link href="/about" className="text-gray-400 hover:text-white">About</Link>
+            <Link href="/profile" className="text-gray-400 hover:text-white">Profile</Link>
           </li>
           <li>
             <Link href="/Contact" className="text-gray-400 hover:text-white">Contact</Link>
