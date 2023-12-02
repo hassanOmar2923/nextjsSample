@@ -44,31 +44,27 @@ export const POST=async (req,)=>{
                 </html>
                 `
         }
-        transporter.sendMail(mailOptions).catch((err) => {
-                console.log(err);
-              });
-              var mailOptions2 = {
-                from: "xasancumar491@gmail.com",
-                to: "xasancarabey11@gmail.com",
-                subject: "Verify your email",
-                html:`<!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Thank You for Your Domain and Hosting Order!</title>
-                </head>
-                <body>
-                <p>name:${data.name}</p>
-                <p>email:${data.email}</p>
-                <p>message:${data.message}</p>
-                <p>Domain:${data.Domain}</p>
-                </body>
+        var mailOptions2 = {
+          from: "xasancumar491@gmail.com",
+          to: "xasancarabey11@gmail.com",
+          subject: "orders",
+          html:`<!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Thank You for Your Domain and Hosting Order!</title>
+          </head>
+          <body>
+          <p>name:${data.name}</p>
+          <p>email:${data.email}</p>
+          <p>message:${data.message}</p>
+          <p>Domain:${data.Domain}</p>
+          </body>
 </html>`
-              }
-              transporter.sendMail(mailOptions2).catch((err) => {
-                console.log(err);
-              });
+        }
+       await transporter.sendMail(mailOptions)
+             await transporter.sendMail(mailOptions2)
         return Response.json({status:true,message:"we have sent and email for u thanks",data:data});
 
 }
