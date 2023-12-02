@@ -3,6 +3,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react';
 import { useForm } from "react-hook-form"; 
 import * as yup from "yup"
+import { toast,ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const schema =yup.object({
   // id: yup.number().required('id is required'),
   name: yup.string().required('name is required'),
@@ -21,15 +23,30 @@ export default function Home() {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
   const formSubmit=async(data) => {
-    setLoading(true)
+    try {
+      setLoading(true)
     const response = await fetch('/api/POST', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
-    });
-    setLoading(false)
+    }).then((res)=>{
+     if(res.status ==200){
+      setLoading(false)
+      toast.success('mahad sanid, hubi g-mail inbox-kaga, hadaad g-mail kuso gareen hakala xishoon inaad ku celcliso')
+
+     }else{
+      setLoading(false)
+      toast.error('error accured, please try again')
+     }
+    })
+   
+    } catch (error) {
+      setLoading(false)
+      toast.error('error accured, please try again')
+    }
+    
 
     // console.log(await response.json()) ;
     //  const POST=await fetch("api/FETCH", {
@@ -46,10 +63,11 @@ export default function Home() {
 
   return (
     <div className='mt-5'>
+      <ToastContainer/>
       <div>
         <div className="flex flex-col bg-gray-100 my-5">
   <div className="flex items-center justify-between mb-4">
-    <p>formkan buuxi si aan anaga kugu shaqeeno, ama toos adiga ugado <b><a href='https://hostbile.com/client/index.php?rp=/store/shared-hosting/personal'>go to hostibile</a></b></p>
+    <p>formkan buuxi si aan anaga kugu iibino wax walbo aad rabto ama toos adiga ugado <b><a href='https://hostbile.com/client/index.php?rp=/store/shared-hosting/personal'>go to hostibile</a></b></p>
   </div>
 </div>
 
