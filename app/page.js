@@ -81,25 +81,25 @@ export default function Home() {
 
 
 <label className="mb-2">E-mail:</label> 
-<input type='email' {...register(`email`)}  className="w-full border border-[#FF5111] rounded-md p-2 text-gray-700" />
+<input placeholder='geli e-mail-kaga' type='email' {...register(`email`)}  className="w-full border border-[#FF5111] rounded-md p-2 text-gray-700" />
 {errors.email && <span className="text-red-600">{errors.email.message}</span>}
 <div className='flex my-4 gap-5'>
 <div>
 <label className="mb-2">name:</label> 
-<input {...register(`name`)}   className="w-full border border-[#FF5111] rounded-md p-2 text-gray-700" />
+<input placeholder='geli name-kaga' {...register(`name`)}   className="w-full border border-[#FF5111] rounded-md p-2 text-gray-700" />
 {errors.name && <span className="text-red-600">{errors.name.message}</span>}
 </div>
 <div>
   
 <label className="mb-2">phone:</label>
  
-<input  {...register(`phone`)}   className="w-full border border-[#FF5111] rounded-md p-2 text-gray-700" />
+<input placeholder='geli tell-kaga'  {...register(`phone`)}   className="w-full border border-[#FF5111] rounded-md p-2 text-gray-700" />
 {errors.phone && <span className="text-red-600">{errors.phone.message}</span>}
 </div>
   
 </div>
 <label className="mb-2">message: </label> 
-<textarea {...register(`message`)}   className="w-full border border-[#FF5111] rounded-md  text-gray-700 focus:border-[#0B3870]" />
+<textarea placeholder='geli dalabkga halkaan' {...register(`message`)}   className="w-full border border-[#FF5111] rounded-md  text-gray-700 focus:border-[#0B3870]" />
 {errors.message && <span className="text-red-600">{errors.message.message}</span>}
 
 <button type='submit' className=" w-full px-4 py-2 rounded-md bg-[#FF5111] text-white font-bold shadow-md hover:bg-[#0B3870] transition duration-150">{leading ? "..." :"place order"}</button>
