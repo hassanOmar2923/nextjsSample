@@ -10,8 +10,8 @@ const schema =yup.object({
   name: yup.string().required('name is required'),
   phone: yup.string().required('phone is required'),
   email: yup.string().required('email is required'),
-  message: yup.string().required('message is required')
-
+  message: yup.string().required('message is required').max(150),
+  Domain: yup.string().required('Domain is required')
 })
 export default function Home() {
   const [leading,setLoading] =useState(false)
@@ -67,7 +67,7 @@ export default function Home() {
       <div>
         <div className="flex flex-col bg-gray-100 my-5">
   <div className="flex items-center justify-between mb-4">
-    <p>formkan buuxi si aan anaga kugu iibino wax walbo aad rabto ama toos adiga ugado <b><a href='https://hostbile.com/client/index.php?rp=/store/shared-hosting/personal'>go to hostibile</a></b></p>
+    <p >formkan buuxi si aan anaga kugu iibino wax walbo aad rabto ama toos adiga ugado <b><a href='https://hostbile.com/client/index.php?rp=/store/shared-hosting/personal'>go to hostibile</a></b></p>
   </div>
 </div>
 
@@ -79,23 +79,34 @@ export default function Home() {
 <div>
 
 
+<div className='flex my-4 gap-5'>
+<div>
 
 <label className="mb-2">E-mail:</label> 
 <input placeholder='geli e-mail-kaga' type='email' {...register(`email`)}  className="w-full border border-[#FF5111] rounded-md p-2 text-gray-700" />
 {errors.email && <span className="text-red-600">{errors.email.message}</span>}
+</div>
+<div>
+
+<label className="mb-2">name:</label> 
+<input placeholder='geli name-kaga'  {...register(`name`)}  className="w-full border border-[#FF5111] rounded-md p-2 text-gray-700" />
+{errors.email && <span className="text-red-600">{errors.name.message}</span>}
+</div>
+</div>
 <div className='flex my-4 gap-5'>
 <div>
-<label className="mb-2">name:</label> 
-<input placeholder='geli name-kaga' {...register(`name`)}   className="w-full border border-[#FF5111] rounded-md p-2 text-gray-700" />
-{errors.name && <span className="text-red-600">{errors.name.message}</span>}
-</div>
-<div>
   
-<label className="mb-2">phone:</label>
- 
-<input placeholder='geli tell-kaga'  {...register(`phone`)}   className="w-full border border-[#FF5111] rounded-md p-2 text-gray-700" />
-{errors.phone && <span className="text-red-600">{errors.phone.message}</span>}
+  <label className="mb-2">phone:</label>
+   
+  <input placeholder='geli tell-kaga'  {...register(`phone`)}   className="w-full border border-[#FF5111] rounded-md p-2 text-gray-700" />
+  {errors.phone && <span className="text-red-600">{errors.phone.message}</span>}
+  </div>
+<div>
+<label className="mb-2">Domain name:</label> 
+<input placeholder='geli Domain name-ka' {...register(`Domain`)}   className="w-full border border-[#FF5111] rounded-md p-2 text-gray-700" />
+{errors.Domain && <span className="text-red-600">{errors.Domain.message}</span>}
 </div>
+
   
 </div>
 <label className="mb-2">message: </label> 

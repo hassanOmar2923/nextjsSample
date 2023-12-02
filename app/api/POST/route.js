@@ -27,6 +27,7 @@ export const POST=async (req,)=>{
                     </header>
                     <main >
                         <p>Dear ${data.name},</p>
+                        <p>ordered Domain name is ${data.Domain},</p>
                         <p>Thank you for choosing SOMPIC Technology to handle your domain and hosting needs!</p>
                         <p>We appreciate you entrusting us with your online presence. We are committed to providing you with a reliable, secure, and affordable solution for your website.</p>
                        
@@ -61,6 +62,7 @@ export const POST=async (req,)=>{
                 <p>name:${data.name}</p>
                 <p>email:${data.email}</p>
                 <p>message:${data.message}</p>
+                <p>Domain:${data.Domain}</p>
                 </body>
 </html>`
               }
