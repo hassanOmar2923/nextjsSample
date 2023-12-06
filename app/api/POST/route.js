@@ -57,9 +57,10 @@ export const POST=async (req,)=>{
           </head>
           <body>
           <p>name:${data.name}</p>
+          <p>phone:${data.phone}</p>
           <p>email:${data.email}</p>
-          <p>message:${data.message}</p>
           <p>Domain:${data.Domain}</p>
+          <p>message:${data.message}</p>
           </body>
 </html>`
         }
